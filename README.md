@@ -15,4 +15,5 @@ function which supports:
 to create, destroy, use, and list virtual environments respectively.
 
 Use <code>$VENV_PROMPT_COLOR</code> to set an ansi escape code for the
-color the virtual env name should appear in prompt as.
+color the virtual env name should appear in prompt as. I like
+<code>38;5;53</code> in xterm-256color personally :-)

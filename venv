@@ -4,7 +4,7 @@ init() {
     
     echo '
 __venv_prompt() {
-    echo "(\[\033[38;5;\${VENV_PROMPT_COLOR}m\]$(basename "$VIRTUAL_ENV")\[\033[00m\])"
+    echo "(\[\033[38;5;${VENV_PROMPT_COLOR}m\]$(basename "$VIRTUAL_ENV")\[\033[00m\])"
 }
 
 

@@ -1,6 +1,6 @@
 To use, place <code>venv.bash</code> somewhere on your path and:
 
-    . venv.bashrc
+    . venv.bash
     
 You can do this by hand or put it in your <code>~/.bashrc</code>,
 which I suggest for ongoing use.

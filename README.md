@@ -1,8 +1,9 @@
-To use, place <code>venv</code> somewhere on your path and:
+To use, place <code>venv.bash</code> somewhere on your path and:
 
-    eval "$(venv init)"
+    . venv.bashrc
     
-You can do this by hand or put it in your <code>~/.bashrc</code>
+You can do this by hand or put it in your <code>~/.bashrc</code>,
+which I suggest for ongoing use.
 
 Once it is "installed" via that eval, it defines a <code>venv</code>
 function which supports:

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-init() {
- 
-    echo '
 __venv_prompt() {
     case $TERM in
         "xterm-color")
@@ -15,18 +12,23 @@ __venv_prompt() {
 }
 
 venv() {
-    local venv_dir="~/.venv/"
-    mkdir -p "$venv_dir"
+
+    if [ ! -n "${VENV_DIR}" ] 
+    then
+        VENV_DIR="~/.venv"
+    fi
+    echo $VENV_DIR
+    mkdir -p "$VENV_DIR"
 
     case "$1" in
         "create")
-            virtualenv --prompt="\$(__venv_prompt)"  "$venv_dir/$2";;
+            virtualenv --prompt='$(__venv_prompt)'  "$VENV_DIR/$2";;
         "destroy")
-            rm -rf "$venv_dir/$2";;
+            rm -rf "$VENV_DIR/$2";;
         "use")
-            source "$venv_dir/$2/bin/activate";;
+            source "$VENV_DIR/$2/bin/activate";;
         "ls")
-            ls "$venv_dir";;
+            ls "$VENV_DIR";;
         *)
             echo "venv [create <name>]
      [destroy <name>]
@@ -34,12 +36,4 @@ venv() {
      [ls]";;
     esac
 }
-'
-}
 
-case $1 in
-    "init") 
-        init;;
-    *) 
-        echo 'to use: eval "$(venv init)"  ';;
-esac

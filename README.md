@@ -4,5 +4,5 @@ To use, place <code>venv</code> somewhere on your path and:
     
 You can do this by hand or put it in your <code>~/.bashrc</code>
 
-Right now it assumes xterm-256color which is unfortunate, should be
-fixed soon.
+Use <code>$VENV_PROMPT_COLOR</code> to set an ansi escape code for the
+color the virtual env name should appear in prompt as.

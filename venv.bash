@@ -15,10 +15,12 @@ venv() {
 
     if [ ! -n "${VENV_DIR}" ] 
     then
-        VENV_DIR="~/.venv"
+        VENV_DIR="${HOME}/.venv"
     fi
-    echo $VENV_DIR
-    mkdir -p "$VENV_DIR"
+    if [ ! -d $VENV_DIR ]
+    then
+        mkdir -p "${VENV_DIR}"
+    fi
 
     case "$1" in
         "create")

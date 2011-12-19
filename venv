@@ -1,0 +1,40 @@
+#!/bin/bash
+
+init() {
+    
+    echo '
+__venv_prompt() {
+    echo "(\[\033[38;5;\${VENV_PROMPT_COLOR}m\]$(basename "$VIRTUAL_ENV")\[\033[00m\])"
+}
+
+
+venv() {
+    local venv_dir="~/.venv/"
+    mkdir -p "$venv_dir"
+    local VENV_PROMPT_COLOR=54
+
+    case "$1" in
+        "create")
+            virtualenv --prompt="\$(__venv_prompt)"  "$venv_dir/$2";;
+        "destroy")
+            rm -rf "$venv_dir/$2";;
+        "use")
+            source "$venv_dir/$2/bin/activate";;
+        "ls")
+            ls "$venv_dir";;
+        *)
+            echo "venv [create <name>]
+     [destroy <name>]
+     [use <name>]
+     [ls]";;
+    esac
+}
+'
+}
+
+case $1 in
+    "init") 
+        init;;
+    *) 
+        echo 'to use: eval "$(venv init)"  ';;
+esac

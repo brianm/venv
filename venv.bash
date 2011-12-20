@@ -21,7 +21,7 @@ venv() {
     then
         mkdir -p "${VENV_DIR}"
     fi
-
+    
     case "$1" in
         "create")
             virtualenv --prompt='$(__venv_prompt)'  "$VENV_DIR/$2";;
@@ -39,3 +39,23 @@ venv() {
     esac
 }
 
+__venv_completion() {
+    local cur prev opts
+    local venvs="$(venv ls)"
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="create destroy use ls"
+
+    case "${prev}" in
+        destroy)
+            COMPREPLY=( $(compgen -W $(venv ls) -- ${cur}) );;
+        use)
+            COMPREPLY=( $(compgen -W "${venvs}" -- ${cur}) );;
+        *)
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) );;
+    esac
+}
+
+
+complete -F __venv_completion venv

@@ -32,7 +32,7 @@ Demo:
 
 Use <code>$VENV_PROMPT_COLOR</code> to set an ansi color code for the
 color of the virtual env name in the prompt. I like
-<code>VENV_PROMPT_COLOR='38;5;53'</code> in xterm-256color. In
+<code>VENV_PROMPT_COLOR='38;5;53'</code> in <code>xterm-256color</code>. In
 traditional 16 color <code>xterm-color</code> I would tend towards
 <code>VENV_PROMPT_COLOR='0;35'</code>.
 

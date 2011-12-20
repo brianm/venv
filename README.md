@@ -1,4 +1,4 @@
-To use, place <code>venv.bash</code> somewhere on your path and:
+To use, place <code>venv.bash</code> somewhere and source it, a la:
 
     . venv.bash
     

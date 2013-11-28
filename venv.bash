@@ -59,3 +59,10 @@ __venv_completion() {
 
 
 complete -F __venv_completion venv
+
+# use venv based virtual env by default if it exists
+if [ -d ~/.venv/default ] ; then
+    export VIRTUAL_ENV_DISABLE_PROMPT=true
+    venv use default
+    unset VIRTUAL_ENV_DISABLE_PROMPT
+fi

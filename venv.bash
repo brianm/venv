@@ -24,7 +24,7 @@ venv() {
     
     case "$1" in
         "create")
-            virtualenv --prompt='$(__venv_prompt)'  "$VENV_DIR/$2";;
+            /usr/local/share/python/virtualenv --prompt='$(__venv_prompt)'  "$VENV_DIR/$2";;
         "destroy")
             rm -rf "$VENV_DIR/$2";;
         "use")
